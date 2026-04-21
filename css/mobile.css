@@ -1,0 +1,505 @@
+/* ============================================================
+   ESTRATÉGIA MOBILE - RAMILE MACIELL
+   ============================================================ */
+
+@media (max-width: 768px) {
+    /* 1. LOADER: Menor para não ocupar a tela toda */
+    .loader-profile-img {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    .logo-loader {
+        font-size: 1.8rem;
+        letter-spacing: 6px;
+    }
+
+    /* 2. HERO PRINCIPAL: Os 3 painéis ficam inviáveis lado a lado */
+    .hero-background-wrapper {
+        flex-direction: column; /* Empilha as fotos */
+        width: 100%;
+        left: 0;
+    }
+    .bg-panel {
+        width: 100%;
+        height: 33.33vh; /* Cada painel pega 1/3 da altura */
+        opacity: 1 !important; /* Força visibilidade no mobile */
+        filter: grayscale(0%) brightness(0.7) !important;
+    }
+    .bg-panel:hover {
+        flex: 1; /* Desativa o efeito de expansão no toque (fica estranho no celular) */
+    }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    /* 3. PORTFÓLIO - TÍTULO VAZADO (PORTIFÓLIO) */
+    .hero-title-split {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: 30%; /* Sobe o título para não bater na bio */
+        font-size: clamp(3rem, 15vw, 6rem);
+        text-align: center;
+    }
+    .part-left, .part-right {
+        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 4. BIO CENTRALIZADA: Removendo o 'top: 40%' que quebra o layout */
+    .hero-bio-center {
+        top: auto;
+        margin-top: 150px; /* Dá espaço para o título acima */
+        padding: 0 1.5rem;
+    }
+
+    /* 5. CARDS UNIFICADOS: De Grid para Flex vertical */
+    .unified-card-container {
+        grid-template-columns: 1fr; /* Força uma coluna só */
+        gap: 30px;
+    }
+    .card-body {
+        padding: 40px 30px; /* Reduz o respiro interno exagerado */
+    }
+    .main-title {
+        font-size: 2rem;
+    }
+
+    /* 6. CASES DE SUCESSO: O ponto crítico */
+    .case-card-glass {
+        grid-template-columns: 1fr; /* O conteúdo e as fotos ficam um embaixo do outro */
+        padding: 30px 20px;
+        gap: 20px;
+    }
+    .case-title {
+        font-size: 1.8rem;
+    }
+    .case-list li {
+        font-size: 1rem;
+    }
+    .case-visual-grid {
+        grid-template-columns: 1fr 1fr; /* Mantém 2 fotos por linha no celular */
+    }
+
+@media (max-width: 768px) {
+
+    /* 1. EXPANDIR IMAGEM CENTRAL E SUMIR COM AS OUTRAS */
+    #hero .bg-panel:nth-child(1),
+    #hero .bg-panel:nth-child(3) {
+        display: none !important; /* Remove os painéis laterais */
+    }
+
+    #hero .bg-panel {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('/img/ramile-centro.WebP') !important;
+        filter: brightness(0.8) contrast(1.05) !important; /* Foto mais natural e nítida */
+    }
+
+    #hero .bg-panel:nth-child(2) {
+        flex: 1;
+        width: 100vw;
+        height: 100vh;
+        filter: grayscale(0%) brightness(0.6) !important; /* Deixa a foto clara e visível */
+        background-position: center top; /* Foca no rosto da Ramile */
+    }
+
+    /* 2. REORGANIZAR O CONTEÚDO (Centralizar e Jogar para Baixo) */
+    #hero .hero-content {
+        position: absolute;
+        bottom: 10%; /* Posiciona o bloco de texto/botões na parte inferior */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 400px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: auto; /* Garante que os botões funcionem */
+    }
+
+    /* 3. DIMINUIR TEXTOS PARA FICAREM DELICADOS */
+    #hero .hero-content h1 {
+        font-size: 1.6rem !important; /* Título menor e elegante */
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    #hero .hero-content p {
+        font-size: 0.9rem !important;
+        line-height: 1.4;
+        margin-top: 0;
+        opacity: 0.8;
+    }
+
+    /* 4. BOTÕES COMPACTOS E ORGANIZADOS UM EMBAIXO DO OUTRO */
+    #hero .hero-btns {
+        display: flex;
+        flex-direction: column; /* Pilha os botões verticalmente */
+        gap: 12px; /* Espaço entre eles */
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    #hero .btn {
+        margin: 0 auto !important; /* Reseta margens externas */
+        padding: 12px 20px !important; /* Botão mais baixo */
+        font-size: 0.85rem !important; /* Letra menor */
+        width: 100% !important; /* Ocupa a largura do container pai */
+        max-width: 260px; /* Mas não fica largo demais */
+        border-radius: 50px; /* Estilo pílula, mais moderno */
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* 1. REMOVER O NOME PORTIFÓLIO (Limpeza do rosto) */
+    .portfolio-container .hero-title-split {
+        display: none !important;
+    }
+
+    /* 2. REORGANIZAR O CONTEÚDO PARA BAIXO */
+    .portfolio-container .hero-bio-center {
+        position: absolute;
+        bottom: 50px; /* Joga tudo para a base da tela */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        text-align: center;
+        z-index: 20;
+        top: auto; /* Remove o top: 40% que estava no CSS original */
+    }
+
+    /* 3. DIMINUIR O BOTÃO "VOLTAR" (Topo) */
+    .btn-back-ultimate {
+        padding: 8px 18px !important; /* Mais delicado */
+        font-size: 0.7rem !important; /* Texto pequeno e minimalista */
+        top: 15px !important;
+        left: 15px !important;
+        gap: 8px;
+    }
+
+    /* 4. DIMINUIR O BOTÃO "EXPLORAR" (Base) */
+    .btn-explore-vibrant {
+        padding: 12px 25px !important; /* Menos "gordo" */
+        font-size: 0.85rem !important;
+        margin-top: 20px !important;
+        width: auto !important; /* Não deixa ele esticar na tela toda */
+        display: inline-block;
+    }
+
+    /* 5. AJUSTE DE TEXTOS (Nome e Subtítulo) */
+    .hero-name-clear {
+        font-size: 1.6rem !important; /* Nome elegante, sem gritar */
+        margin-bottom: 2px !important;
+    }
+
+    .hero-subtitle-clear {
+        font-size: 0.9rem !important;
+        opacity: 0.8;
+    }
+
+    .hero-tag-vibrant {
+        font-size: 0.7rem !important;
+        letter-spacing: 3px !important;
+        margin-bottom: 5px !important;
+    }
+}
+
+.footer-logo span {
+        font-size: 0.65rem !important; /* Bem pequeno e elegante */
+        letter-spacing: 5px !important; /* Mantém o espaçamento premium */
+        opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+
+    /* 1. O HERO VIRA UM CONTAINER ÚNICO */
+    #hero {
+        display: flex;
+        flex-direction: column;
+        height: 100vh; /* Trava na altura da tela */
+        height: 100svh; /* Melhora em iPhones (ignora a barra do Safari) */
+        padding: 20px;
+        justify-content: center; /* Centraliza o bloco principal */
+        overflow: hidden; /* Garante que nada crie barra de rolagem */
+    }
+
+    /* 2. ENCOLHER O CONTEÚDO PARA CABER */
+    #hero .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        /* Removemos posições absolutas ou margens automáticas que empurram pra fora */
+        margin: 0; 
+        padding: 0;
+    }
+
+    #hero .hero-content h1 {
+        font-size: 1.5rem !important; /* Diminuímos mais para ganhar espaço */
+        margin-bottom: 5px;
+    }
+
+    #hero .hero-content p {
+        font-size: 0.85rem !important;
+        max-width: 260px;
+        line-height: 1.3;
+        margin-bottom: 20px;
+    }
+
+    /* 3. BOTÕES MAIS COMPACTOS */
+    #hero .hero-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Espaço menor entre botões */
+        width: 100%;
+        max-width: 220px; /* Botões mais estreitos */
+    }
+
+    #hero .btn {
+        padding: 10px 0 !important; /* Menos altura no botão */
+        font-size: 0.8rem !important;
+        margin: 0 !important;
+    }
+
+    /* 4. ASSINATURA FIXA NO RODAPÉ (Sem Atropelar) */
+    .main-footer {
+        position: absolute; /* Fixa no fundo do Hero */
+        bottom: 8px;
+        left: 0;
+        width: 100%;
+        background: transparent !important;
+        text-align: center;
+    }
+
+    .footer-logo span {
+        font-size: 0.55rem !important;
+        letter-spacing: 4px !important;
+    }
+
+    .footer-tagline {
+        font-size: 0.45rem !important;
+        margin-top: 2px !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* 1. REDUZIR A FOTO DE PERFIL */
+    .loader-profile-img {
+        width: 120px !important;  /* De 220px para 120px */
+        height: 120px !important;
+        border-width: 3px !important; /* Borda mais fina */
+        margin-bottom: 20px !important; /* Menos espaço abaixo da foto */
+        box-shadow: 0 0 25px rgba(188, 19, 254, 0.4) !important; /* Brilho mais sutil */
+    }
+
+    /* 2. REDUZIR O NOME (RAMILE MACIELL) */
+    .logo-loader {
+        font-size: 1.2rem !important; /* De 2.8rem para 1.2rem */
+        letter-spacing: 5px !important; /* Espaçamento menor para não vazar a tela */
+        margin-bottom: 15px !important;
+    }
+
+    /* 3. AJUSTAR A BARRA DE CARREGAMENTO */
+    .loader-bar {
+        max-width: 300px; /* Limita a largura da barrinha */
+        margin: 0 auto;   /* Centraliza */
+        height: 1.5px !important;
+    }
+
+    /* 4. AJUSTE DE POSICIONAMENTO CENTRAL */
+    .loader-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+    
+
+    /* 7. CARD FINAL */
+    .card-agradecimento {
+        padding: 40px 20px;
+    }
+    .foto-perfil-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+    .titulo-card {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* AJUSTES PARA CELULARES MUITO PEQUENOS (iPhone SE, etc) */
+@media (max-width: 380px) {
+    .case-visual-grid {
+        grid-template-columns: 1fr; /* Uma foto por linha em telas mínimas */
+    }
+    .hero-title-split {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* 1. Altera apenas a proporção das colunas: Texto 35% | Fotos 65% */
+    .case-card-glass {
+        grid-template-columns: 1fr 1.8fr !important; 
+        display: grid !important;
+    }
+
+    /* 2. Define um tamanho fixo grande para as imagens não encolherem */
+    .case-visual-grid img {
+        height: 100% !important; /* Altura imponente para as fotos */
+        width: 100% !important;
+        object-fit: cover !important; /* Garante que a foto preencha o espaço sem esticar */
+    }
+
+    /* 3. Garante que o grid de fotos use todo o espaço novo */
+    .case-visual-grid {
+        width: 100% !important;
+        grid-template-columns: 1fr 1fr !important; /* Mantém 2 colunas grandes */
+    }
+}
+
+/* ============================================================
+   REPLICAÇÃO TOTAL DE ANIMAÇÃO (ZION FLOW MOBILE)
+   ============================================================ */
+
+/* ============================================================
+   REGRAS DE SEGURANÇA - DESKTOP SEMPRE VISÍVEL
+   ============================================================ */
+.zt-ani, .revelar-card, .animar-hero-zion, .case-card-glass, .card-agradecimento {
+    opacity: 1;
+    transform: none;
+    filter: none;
+}
+
+/* ============================================================
+   ZION FLOW - ESTADO INICIAL GLOBAL (Desktop + Mobile)
+   ============================================================ */
+
+/* 1. ESCONDER PARA REVELAR 
+   Aplicamos a todas as classes que você já usa no HTML */
+.zt-ani, 
+.revelar-card, 
+.animar-hero-zion, 
+.case-card-glass, 
+.card-agradecimento {
+    opacity: 0;
+    transform: translateY(40px); /* Começa um pouco abaixo */
+    filter: blur(12px);          /* Desfoque cinematográfico */
+    will-change: transform, opacity, filter;
+    transition: none !important; /* Limpa transições para não conflitar com Keyframes */
+}
+
+/* 2. DISPARADOR ATIVO UNIVERSAL */
+.zt-active, .ani-active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    filter: blur(0) !important;
+    /* Usamos a curva de saída rápida para o site parecer "leve" */
+    transition: 
+        opacity 1.2s cubic-bezier(0.2, 1, 0.3, 1), 
+        transform 1.2s cubic-bezier(0.2, 1, 0.3, 1), 
+        filter 1.2s cubic-bezier(0.2, 1, 0.3, 1) !important;
+}
+
+/* 3. KEYFRAMES ESPECÍFICOS (Agora globais) */
+@keyframes entradaSuaveZion {
+    from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes subirZionCards {
+    0% { opacity: 0; transform: translateY(60px); filter: blur(15px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+    /* 2. DISPARADORES ATIVOS (Quando o JS avisar) */
+    .zt-active, .ani-active {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        filter: blur(0) !important;
+    }
+
+    /* 3. ANIMAÇÃO ULTRA LENTA (Adaptada para Mobile) */
+    .revelar-card.zt-active {
+        animation: subirZionCardsMobile 2.5s cubic-bezier(0.05, 0.7, 0.1, 1) forwards !important;
+    }
+
+    /* 4. ANIMAÇÃO DO HERO (Entrada Suave Mobile) */
+    .animar-hero-zion.zt-active {
+        animation: entradaSuaveZionMobile 1.2s ease-out forwards !important;
+    }
+
+    /* 5. AJUSTE DO CARD FINAL (Obrigada) */
+    .card-agradecimento {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 40px 20px !important;
+        text-align: center !important;
+    }
+
+    /* --- KEYFRAMES EXCLUSIVOS MOBILE --- */
+    @keyframes subirZionCardsMobile {
+        0% { opacity: 0; transform: translateY(60px); filter: blur(15px); }
+        100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    @keyframes entradaSuaveZionMobile {
+        from { opacity: 0; transform: translateY(15px); filter: blur(5px); }
+        to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    /* DELAYS MOBILE */
+    .d-1, .zt-delay-1 { animation-delay: 0.2s !important; }
+    .d-2, .zt-delay-2 { animation-delay: 0.4s !important; }
+    .d-3, .zt-delay-3 { animation-delay: 0.6s !important; }
+    .delay-card-1 { animation-delay: 0.7s !important; }
+
+
+/* ============================================================
+   ANIMAÇÃO CINEMATOGRÁFICA DA IMAGEM (HERO MOBILE)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .hero-img-fixed {
+        /* 1. Entrada: Ela nasce com blur e zoom */
+        /* 2. Loop: Fica flutuando suavemente para sempre */
+        animation: 
+            zionImageReveal 2s ease-out forwards,
+            zionImageBreathing 10s ease-in-out infinite 2s !important;
+        
+        transform-origin: center center;
+        will-change: transform, opacity, filter;
+    }
+
+    /* KEYFRAMES DA ENTRADA (REVELAÇÃO) */
+    @keyframes zionImageReveal {
+        from { 
+            opacity: 0; 
+            transform: scale(1.2); 
+            filter: blur(10px) brightness(0.4); 
+        }
+        to { 
+            opacity: 1; 
+            transform: scale(1); 
+            filter: blur(0) brightness(0.60); 
+        }
+    }
+
+    /* KEYFRAMES DA RESPIRAÇÃO (MOVIMENTO CONTÍNUO) */
+    @keyframes zionImageBreathing {
+        0%, 100% { 
+            transform: scale(1) translateY(0); 
+        }
+        50% { 
+            transform: scale(1.04) translateY(-10px); /* Zoom leve + subida */
+        }
+    }
+}
+
