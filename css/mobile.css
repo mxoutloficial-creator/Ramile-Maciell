@@ -89,7 +89,7 @@
     }
 
     #hero .bg-panel {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('/img/ramile-centro.WebP') !important;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url('/img/teste.webp') !important;
         filter: brightness(0.8) contrast(1.05) !important; /* Foto mais natural e nítida */
     }
 
