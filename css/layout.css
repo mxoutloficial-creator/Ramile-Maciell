@@ -9,9 +9,9 @@ header { width: 100%; padding: 20px 8%; position: fixed; top: 0; left: 0; displa
 .bg-panel:nth-child(2) { filter: grayscale(0%) brightness(0.8) contrast(1.2); z-index: 2; }
 .bg-panel:hover { flex: 2.5; filter: grayscale(0%) brightness(0.9); }
 
-.site-ready .bg-panel { opacity: 1; transform: scale(1); filter: grayscale(100%) brightness(0.5) blur(0); }
+.site-ready .bg-panel { opacity: 1; transform: scale(1); filter: brightness(0.7) blur(0); }
 .site-ready .bg-panel:nth-child(2) { filter: grayscale(0%) brightness(0.8) contrast(1.2) blur(0); }
-.site-ready .bg-panel:hover { flex: 2.2; filter: grayscale(0%) brightness(0.9) contrast(1.1) blur(0) !important; z-index: 10; margin-right: -1px; }
+.site-ready .bg-panel:hover { flex: 1.5; filter: grayscale(0%) brightness(0.9) contrast(1.1) blur(0) !important; z-index: 10; margin-right: -1px; }
 
 .bg-panel:nth-child(2)::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-shadow: inset 20px 0 30px -20px rgba(0,0,0,0.8), inset -20px 0 30px -20px rgba(0,0,0,0.8); pointer-events: none; flex: 2.8; }
 .img-ramile { width: 100%; height: 100%; object-fit: cover; object-position: center top; pointer-events: none; filter: drop-shadow(0 0 20px rgba(0,0,0,0.5)); }
@@ -20,7 +20,9 @@ header { width: 100%; padding: 20px 8%; position: fixed; top: 0; left: 0; displa
 h1 span { color: #bc13fe; text-shadow: 0 0 10px rgba(188, 19, 254, 0.8), 0 0 30px rgba(188, 19, 254, 0.4); filter: brightness(1.2); }
 #hero p { font-size: 1.2rem; color: var(--sec-text); max-width: 600px; margin: 20px auto; letter-spacing: 1px; font-weight: 300; }
 .hero-btns { display: flex; justify-content: center; gap: 20px; pointer-events: auto; }
-.hero-content { position: relative; z-index: 10; text-align: center; pointer-events: none; max-width: 900px; padding: 0 20px; }
+.hero-content { position: relative; z-index: 10; text-align: center; pointer-events: none; max-width: 900px; padding: 0 20px;
+transform: translateY(180px); }
+
 .hero-content h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1rem; text-transform: uppercase; }
 .btn { display: inline-block; margin-top: 2rem; padding: 12px 30px; background: var(--primary-color); color: #000; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
 .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(188, 19, 254, 0.5); filter: brightness(1.1); }
