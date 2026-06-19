@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
             heroElements.forEach(el => el.classList.add('zt-active'));
         }, 300);
 
-    }, 2000);
+    }, 1000);
 });
 
 function initZionAnimations() {
