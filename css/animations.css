@@ -209,4 +209,10 @@
         text-align: center;
     }
 
-    
+    @media (max-width: 768px) {
+    #hero .bg-panel {
+     animation: subirZionCards 6.0s cubic-bezier(0.02, 1, 0.3, 1) forwards; 
+    }}
+
+
+
